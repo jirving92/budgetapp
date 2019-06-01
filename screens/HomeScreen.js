@@ -11,6 +11,7 @@ import {
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import { OverviewMenu } from '../components/OverviewMenu';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -34,6 +35,8 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
+
+            <OverviewMenu style={styles.codeHighlightText}/>
 
             <Text style={styles.getStartedText}>Get started by opening</Text>
 
