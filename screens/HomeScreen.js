@@ -19,40 +19,38 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    // Test values
+    const balance = '$25.00';
+    const income = "$100.00";
+    const expense = "$75.00";
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
+          {/* <View style={styles.welcomeContainer}> */}
+            {/* <Image
               source={
                 __DEV__
                   ? require('../assets/images/robot-dev.png')
                   : require('../assets/images/robot-prod.png')
               }
               style={styles.welcomeImage}
-            />
-          </View>
+            /> */}
+          {/* </View> */}
 
           <View style={styles.getStartedContainer}>
             {this._maybeRenderDevelopmentModeWarning()}
 
-            <OverviewMenu style={styles.codeHighlightText}/>
+            <OverviewMenu style={styles.codeHighlightText} expense={expense} income={income} balance={balance}/>
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              hello
+            {/* TODO: fetch list of most recent transactions */}
+            <Text>
+              List of transactions here
             </Text>
-          </View>
 
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
+            {/* TODO: Generate pie chart based on current monthly budget */}
+            <Text>
+              Pie chart of budget here
+            </Text>
           </View>
         </ScrollView>
 
@@ -75,12 +73,12 @@ export default class HomeScreen extends React.Component {
         </Text>
       );
 
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
+      // return (
+      //   // <Text style={styles.developmentModeText}>
+      //   //   Development mode is enabled, your app will be slower but you can use useful development
+      //   //   tools. {learnMoreButton}
+      //   // </Text>
+      // );
     } else {
       return (
         <Text style={styles.developmentModeText}>

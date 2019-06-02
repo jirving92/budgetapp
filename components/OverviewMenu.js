@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { OverviewItem } from './OverviewItem';
 
 export class OverviewMenu extends Component {
     constructor(props) {
@@ -18,18 +19,12 @@ export class OverviewMenu extends Component {
                 <View style={styles.overviewTextContainer}>
                     <Text style={styles.overviewStyle}>{this.state.overviewText}</Text>
                 </View>
-
                 <View style={styles.container}>
-                    <Text style={styles.textStyle}>
-                        {this.state.expenseText}
-                    </Text>
-                    <Text style={styles.textStyle}>
-                        {this.state.incomeText}
-                    </Text>
-                    <Text style={styles.textStyle}>
-                        {this.state.balanceText}
-                    </Text>
+                    <OverviewItem value={this.props.income} title={this.state.incomeText} />
+                    <OverviewItem value={this.props.expense} title={this.state.expenseText} />
+                    <OverviewItem value={this.props.balance} title={this.state.balanceText} />
                 </View>
+                <OverviewItem />
             </View>
         );
     }
@@ -43,9 +38,6 @@ const styles = StyleSheet.create({
         width: '100%'
         // alignItems: 'center'
     },
-    textStyle: {
-        display: 'flex'
-    },
     overviewTextContainer: {
         display: 'flex',
         justifyContent: 'center',
@@ -56,6 +48,7 @@ const styles = StyleSheet.create({
         display: 'flex'
     },
     mainContainer: {
+        marginTop: '10%',
         width: '100%'
     }
 
